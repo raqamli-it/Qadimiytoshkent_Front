@@ -1,0 +1,31 @@
+.news_container {
+  .news_card_container {
+    padding: 0 4rem 4rem 4rem;
+    .news_des {
+      cursor: pointer;
+      background: #fff;
+      .news_p {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+      .create_time {
+        font-weight: 600;
+        color: red;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .news_card_container {
+    padding: 0 3rem 4rem 3rem !important;
+  }
+}
+@media screen and (max-width: 580px) {
+  .news_card_container {
+    padding: 0 2rem 4rem 2rem !important;
+  }
+}

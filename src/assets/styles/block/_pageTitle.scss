@@ -1,0 +1,71 @@
+// .page_title_container {
+//   width: 100%;
+//   height: 200px;
+//   // background: #000;
+//   color: #fff;
+//   padding: 6rem 4rem;
+//   background-image: url("	https://qadimiytoshkent.uz/_nuxt/img/memoriy_fon.555952e.png");
+//   background-position: 50%;
+//   background-repeat: no-repeat;
+//   background-size: contain;
+// }
+
+.page_title_container {
+  position: relative;
+  width: 100%;
+  height: 220px; /* Adjust as needed */
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://api-portal.gov.uz/uploads/927a86c2-d81e-b0ba-3d62-53a5ad60b1bb_media_.jpg"); /* Replace with your image URL */
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+.overlay {
+  padding: 6rem 4rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Adjust the color and opacity as needed */
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.overlay {
+  h1 {
+    width: 100%;
+    border-bottom: 3px solid #fff;
+    color: white;
+    font-weight: 600;
+    font-size: 2.5rem; /* Adjust as needed */
+    z-index: 3;
+  }
+}
+
+@media (max-width: 880px) {
+  .overlay {
+    padding: 4rem 3rem !important;
+    h1 {
+      font-size: 2rem !important;
+    }
+  }
+}
+@media (max-width: 527px) {
+  .overlay {
+    padding: 4rem 2rem !important;
+    h1 {
+      font-size: 1.5rem !important;
+    }
+  }
+}
