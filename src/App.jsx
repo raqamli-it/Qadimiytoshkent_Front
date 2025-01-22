@@ -20,6 +20,10 @@ import ArxAshiyoList from "./Pages/ArxAshiyoList";
 import YodgorlikAshyolari from "./Pages/YodgorlikAshyolari";
 import Layout from "./Layout";
 
+//
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 function App() {
   return (
     <div className="app_container">
