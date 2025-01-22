@@ -1,73 +1,35 @@
 import React, { useEffect, useState } from "react";
-import Slider from "react-slick";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
 
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/scrollbar";
+import "swiper/css/autoplay";
+
+import { Scrollbar, Autoplay } from "swiper/modules";
 import { FaArrowRightLong } from "react-icons/fa6";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { endpoints } from "../config/endpoints";
 import { DataService } from "../config/dataService";
 
 export default function LibraryHome() {
   const navigate = useNavigate();
+
   const [apiData, setApiData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await DataService.get(endpoints.arxeology);
-
-        localStorage.setItem("arxeologyData", JSON.stringify(data.image));
-
         setApiData(data);
       } catch (error) {
         console.error("Error fetching category data:", error);
       }
     };
 
-    const storedData = localStorage.getItem("arxeologyData");
-    if (storedData) {
-      setApiData(JSON.parse(storedData));
-    } else {
-      fetchData();
-    }
+    fetchData();
   }, []);
-
-  // /////////////
-  var settings = {
-    infinite: true,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    pauseOnHover: true,
-    responsive: [
-      {
-        breakpoint: 992,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: true,
-        },
-      },
-
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          initialSlide: 2,
-        },
-      },
-
-      {
-        breakpoint: 520,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
 
   return (
     <div className="ashyo_home_container">
@@ -80,28 +42,58 @@ export default function LibraryHome() {
         </Link>
       </div>
 
-      <div>
-        <Slider {...settings}>
-          {apiData?.map((arxeologyHome) => {
-            return (
-              <div className="ashyo_home_card" key={arxeologyHome.id}>
+      <Swiper
+        scrollbar={{
+          hide: true,
+        }}
+        slidesPerView={4}
+        spaceBetween={30}
+        autoplay={{
+          disableOnInteraction: false,
+        }}
+        modules={[Scrollbar, Autoplay]}
+        breakpoints={{
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          610: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+          1060: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+          1280: {
+            slidesPerView: 4,
+            spaceBetween: 30,
+          },
+        }}
+      >
+        {apiData?.map((arxeologyHome) => {
+          return (
+            <SwiperSlide key={arxeologyHome.id}>
+              <div className="ashyo_home_card">
                 <div className="ashyo_home_img">
                   <img src={arxeologyHome.image} alt="img" />
                 </div>
 
-                <button
-                  className="ashyo_home_name"
+                <div
+                  className="ashyo_home_title"
                   onClick={() =>
                     navigate(`/arxeologyDetail/${arxeologyHome.id}`)
                   }
                 >
-                  <span>{arxeologyHome.title_uz}</span>
-                </button>
+                  <h2 className="ashyo_home_name">
+                    <span>{arxeologyHome.title_uz}</span>
+                  </h2>
+                </div>
               </div>
-            );
-          })}
-        </Slider>
-      </div>
+            </SwiperSlide>
+          );
+        })}
+      </Swiper>
     </div>
   );
 }
