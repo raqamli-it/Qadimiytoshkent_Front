@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import dateFormat from "dateformat";
 import { FaTelegramPlane } from "react-icons/fa";
 
-
 import PageTitle from "../Components/PageTittle";
 import { endpoints } from "../config/endpoints";
 import { DataService } from "../config/dataService";
@@ -20,7 +19,6 @@ export default function AshyolarDetail() {
         const response = await DataService.get(endpoints.ashyoByIdDetail(id));
         setApiData(response);
         console.log(response, "bu bububububububu");
-
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -104,33 +102,26 @@ export default function AshyolarDetail() {
         </div>
       </div> */}
 
-
-      <div className=" bg-[white] py-6 px-4">
+      <div className="bg-[white] py-6 px-4">
         <PageTitle title={apiData?.title_uz} />
         <div className="detail_container_ashyo">
           <div className="detail_img_ashyo">
-
             <img src={apiData?.image} />
           </div>
           <div className="detail_title_ashyo">
             {/* <h1 className="my-4">{apiData?.title_uz}</h1> */}
 
             <div className="detail_describtion_ashyo text-wrap">
-              <p className="text-detail1" dangerouslySetInnerHTML={{ __html: apiData?.context_uz }}>
-
-
-              </p>
-
+              <p
+                className="text-detail1"
+                dangerouslySetInnerHTML={{ __html: apiData?.context_uz }}
+              ></p>
             </div>
           </div>
 
-          <div
-            className="share-ashyo"
-          >
+          <div className="share-ashyo">
             <div>
-              <a target="_blank" className="span-ashyo">
-
-              </a>
+              <a target="_blank" className="span-ashyo"></a>
               {/* <div className="sp-ic-jd">
 
                 <FaTelegramPlane />
@@ -138,6 +129,7 @@ export default function AshyolarDetail() {
             </div>
           </div>
         </div>
-      </div></>
+      </div>
+    </>
   );
 }

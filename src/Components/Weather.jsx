@@ -50,7 +50,6 @@ function WeatherSide({ t }) {
           obj["name"] = regionObj[key];
           arr.push(obj);
         }
-        console.log(res, arr);
         setDaily(arr);
       });
   }, []);

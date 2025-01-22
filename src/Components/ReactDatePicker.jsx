@@ -29,12 +29,12 @@ export default function ReactDatePicker() {
     );
     // console.log("hijjjjjjjjjjj", manth);
     // console.log(manth.split(" ")[1].slice(0, 2));
-    console.log(
-      `${selectedDate.getFullYear()}/${
-        selectedDate.getMonth() + 1
-      }/${selectedDate.getDate()}`,
-      "datA"
-    );
+    // console.log(
+    //   `${selectedDate.getFullYear()}/${
+    //     selectedDate.getMonth() + 1
+    //   }/${selectedDate.getDate()}`,
+    //   "datA"
+    // );
 
     switch (manth.split(" ")[1].slice(0, 2)) {
       case "1/":

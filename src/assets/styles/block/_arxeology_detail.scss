@@ -1,26 +1,7 @@
 .arxeology_detail_content {
   .p-8 {
-    .arxeology_detail_img {
-      display: flex;
-      justify-content: center;
-      img {
-        width: 100%;
-        height: 35rem;
-        object-fit: cover;
-        padding: 0 4rem;
-      }
-    }
     .py-8 {
       background: #e5e5e5;
-    }
-  }
-}
-
-@media (max-width: 1280px) {
-  .arxeology_detail_img {
-    img {
-      padding: 0 0.7rem !important;
-      height: 25rem !important;
     }
   }
 }

@@ -28,24 +28,24 @@ export default function Ashyolar() {
   return (
     <div className="ashyo_container">
       <PageTitle title={"Ashyolar"} />
-      <div class="full_card_container    ">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="full_card_container    ">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {apiData?.map((ashyo) => {
             return (
               <div
-                class="max-w-sm mx-auto relative shadow-md rounded-lg cursor-pointer"
+                className="max-w-sm mx-auto relative shadow-md rounded-lg cursor-pointer"
                 key={ashyo.id}
                 onClick={() => navigate(`/arxeplogyaAshyolari/${ashyo.id}`)}
               >
                 <img
                   src={ashyo.image}
                   alt={ashyo.image}
-                  class="w-full h-auto object-cover rounded-lg"
+                  className="w-full h-auto object-cover rounded-lg"
                 />
-                <div class="absolute bottom-0 left-0 right-0 h-40 bg-black bg-opacity-50  text-white p-4 rounded-b-lg">
-                  <h1 class="text-2xl font-semibold">{ashyo.title}</h1>
+                <div className="absolute bottom-0 left-0 right-0 h-40 bg-black bg-opacity-50  text-white p-4 rounded-b-lg">
+                  <h1 className="text-2xl font-semibold">{ashyo.title}</h1>
                   <p
-                    class="mt-2"
+                    className="mt-2"
                     dangerouslySetInnerHTML={{ __html: ashyo.context_uz }}
                   ></p>
                 </div>

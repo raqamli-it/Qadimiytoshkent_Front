@@ -1,6 +1,5 @@
 .news_container {
   .news_card_container {
-    padding: 0 4rem 4rem 4rem;
     .news_des {
       cursor: pointer;
       background: #fff;
@@ -16,16 +15,5 @@
         color: red;
       }
     }
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .news_card_container {
-    padding: 0 3rem 4rem 3rem !important;
-  }
-}
-@media screen and (max-width: 580px) {
-  .news_card_container {
-    padding: 0 2rem 4rem 2rem !important;
   }
 }

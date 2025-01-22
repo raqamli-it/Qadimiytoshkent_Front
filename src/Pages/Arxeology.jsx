@@ -6,14 +6,17 @@ import { endpoints } from "../config/endpoints";
 
 export default function Arxeology() {
   const navigate = useNavigate();
-  // bu qism api lar bilan ishlash uchun
+
   const [apiData, setApiData] = useState([]);
 
   const fetchData = async () => {
     try {
-      const response = await DataService.get(endpoints.arxeology);
-      console.log(response, "arxeology");
-      setApiData(response);
+      const response = await fetch(
+        "http://subdomain.qadimiytoshkent.uz/archaeologies/"
+      );
+
+      const resp = await response.json();
+      setApiData(resp);
     } catch (error) {
       console.error("Error fetching category data:", error);
     }
@@ -22,134 +25,29 @@ export default function Arxeology() {
   useEffect(() => {
     fetchData();
   }, []);
-  //
-
-
-
-
-
 
   return (
-    <div className="arxeology_container">
+    <div>
       <PageTitle title={"Arxeologiya yodgorliklari"} />
-      <div class="full_card_container    ">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* <!-- Blog Entry 1 --> */}
-          {
-            apiData?.map((arxeology) => (
-              <div
-                className=" max-w-sm mx-auto relative shadow-md rounded-lg cursor-pointer"
-                key={arxeology.id}
-                onClick={() => navigate(`/arxeologyDetail/${arxeology.id}`)}
-              // onClick={() => navigate(`/arxeologyDetail/${arxeology}`)}
-              >
-                <img
-                  src={arxeology.image}
-                  className="w-full h-auto object-cover rounded-lg"
-                />
-
-                <div className="absolute bottom-0 left-0 right-0 h-[110px] flex justify-center bg-black bg-opacity-50 text-white p-4 rounded-b-lg">
-                  <h1 className="text-2xl font-semibold">
-
-                    {arxeology.title_uz}
-                  </h1>
-
-                </div>
-              </div>
-            ))}
-
-          {/* <Link to="/arxeologyDetail">
-
-            <div class="max-w-sm mx-auto relative shadow-md rounded-lg cursor-pointer">
-              <img
-                src="https://uzbekistan.travel/storage/app/media/uploaded-files/2.png"
-                alt="Img by Meriç Dağlı https://unsplash.com/@meric"
-                class="w-full h-auto object-cover rounded-lg"
-              />
-              <div class="absolute bottom-0 left-0 right-0 h-40 bg-black bg-opacity-50  text-white p-4 rounded-b-lg">
-                <h1 class="text-2xl font-semibold">Nature Image</h1>
-                <p class="mt-2">
-                  This is a beautiful nature image placeholder. You can replace
-                  it with your own image.
-                </p>
-              </div>
+      <div className="grid grid-cols-4 mb-10 xl:grid-cols-3 lg:grid-cols-2 md:mt-5 md:grid-cols-1 gap-6 w-[90%] mx-auto">
+        {apiData?.map((arxeology) => (
+          <div
+            className="max-w-sm mx-auto relative shadow-md rounded-lg cursor-pointer"
+            key={arxeology.id}
+            onClick={() => navigate(`/arxeologyDetail/${arxeology.id}`)}
+          >
+            <img
+              src={arxeology.image}
+              className="w-full h-[300px] object-cover rounded-lg"
+            />
+            <div className="absolute bottom-0 left-0 right-0 flex justify-center bg-black bg-opacity-50 text-white p-3 rounded-b-lg">
+              <h1 className="text-2xl font-semibold line-clamp-1">
+                {arxeology.title_uz}
+              </h1>
             </div>
-          </Link>
-
-          <Link to="/arxeologyDetail">
-
-
-            <div class="max-w-sm mx-auto relative shadow-md rounded-lg cursor-pointer ">
-              <img
-                src="https://uzbekistan.travel/storage/app/uploads/public/5eb/a29/b0e/thumb_812_600_480_0_0_auto.jpg"
-                alt="Img by Meriç Dağlı https://unsplash.com/@meric"
-                class="w-full h-auto object-cover rounded-lg"
-              />
-              <div class="absolute bottom-0 left-0 right-0 h-40 bg-black bg-opacity-50 text-white p-4 rounded-b-lg">
-                <h1 class="text-2xl font-semibold">Nature Image</h1>
-                <p class="mt-2">
-                  This is a beautiful nature image placeholder. You can replace
-                  it with your own image.
-                </p>
-              </div>
-            </div>
-          </Link>
-          <Link to="/arxeologyDetail">
-            {" "}
-
-            <div class="max-w-sm mx-auto relative shadow-md rounded-lg cursor-pointer">
-              <img
-                src="https://storage.academy.uz/source/1/news/1/photo_2022-04-21_12-52-14.jpg"
-                alt="Img by Meriç Dağlı https://unsplash.com/@meric"
-                class="w-full h-auto object-cover rounded-lg"
-              />
-              <div class="absolute bottom-0 left-0 right-0 h-40 bg-black bg-opacity-50  text-white p-4 rounded-b-lg">
-                <h1 class="text-2xl font-semibold">Nature Image</h1>
-                <p class="mt-2">
-                  This is a beautiful nature image placeholder. You can replace
-                  it with your own image.
-                </p>
-              </div>
-            </div>
-          </Link>
-          <Link to="/arxeologyDetail">
-
-
-            <div class="max-w-sm mx-auto relative shadow-md rounded-lg cursor-pointer ">
-              <img
-                src="https://xabar.uz/static/crop/6/1/920__95_618098473.jpg"
-                alt="Img by Meriç Dağlı https://unsplash.com/@meric"
-                class="w-full h-auto object-cover rounded-lg h-100"
-              />
-              <div class="absolute bottom-0 left-0 right-0 h-40 bg-black bg-opacity-50  text-white p-4 rounded-b-lg">
-                <h1 class="text-2xl font-semibold">Nature Image</h1>
-                <p class="mt-2">
-                  This is a beautiful nature image placeholder. You can replace
-                  it with your own image.
-                </p>
-              </div>
-            </div>
-          </Link>
-          <Link to="/arxeologyDetail">
-
-            <div class="max-w-sm mx-auto relative shadow-md rounded-lg cursor-pointer ">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/5/52/Axsikent_yodgorligi.jpg"
-                alt="Img by Meriç Dağlı https://unsplash.com/@meric"
-                class="w-full h-auto object-cover rounded-lg"
-              />
-              <div class="absolute bottom-0 left-0 right-0 h-40 bg-black bg-opacity-50 text-white p-4 rounded-b-lg">
-                <h1 class="text-2xl font-semibold">Nature Image</h1>
-                <p class="mt-2">
-                  This is a beautiful nature image placeholder. You can replace
-                  it with your own image.
-                </p>
-              </div>
-            </div>
-          </Link> */}
-        </div>
+          </div>
+        ))}
       </div>
-
     </div>
   );
 }

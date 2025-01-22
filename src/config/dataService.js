@@ -1,14 +1,19 @@
 import axios from "axios";
 import { BASE_URL } from "./url.json";
 
-const authHeader = () =>
-  localStorage.getItem("JADIDLAR_TOKEN")
+// Authorization headerini olish uchun funksiya
+const authHeader = () => {
+  const token = localStorage.getItem("JADIDLAR_TOKEN");
+  const lang = localStorage.getItem("JADID_LAN") || "uz";
+  return token
     ? {
-        Authorization: "Bearer " + localStorage.getItem("JADIDLAR_TOKEN"),
-        "Accept-Language": localStorage.getItem("JADID_LAN") || "uz",
+        Authorization: "Bearer " + token,
+        "Accept-Language": lang,
       }
-    : { "Accept-Language": localStorage.getItem("JADID_LAN") || "uz" };
+    : { "Accept-Language": lang };
+};
 
+// Axios clientini yaratish
 const client = axios.create({
   baseURL: BASE_URL,
   headers: {
@@ -17,6 +22,7 @@ const client = axios.create({
 });
 
 class DataService {
+  // GET so'rovini yuborish
   static get(path, params = {}, optionalHeader = {}) {
     return client({
       method: "GET",
@@ -26,6 +32,7 @@ class DataService {
     });
   }
 
+  // POST so'rovini yuborish
   static post(path = "", data = {}, optionalHeader = {}) {
     return client({
       method: "POST",
@@ -35,6 +42,7 @@ class DataService {
     });
   }
 
+  // PATCH so'rovini yuborish
   static patch(path = "", data = {}) {
     return client({
       method: "PATCH",
@@ -44,6 +52,7 @@ class DataService {
     });
   }
 
+  // DELETE so'rovini yuborish
   static delete(path = "", data = {}) {
     return client({
       method: "DELETE",
@@ -53,7 +62,8 @@ class DataService {
     });
   }
 
-  static xput(path = "", data = {}, optionalHeader = {}) {
+  // PUT so'rovini yuborish
+  static put(path = "", data = {}, optionalHeader = {}) {
     return client({
       method: "PUT",
       url: path,
@@ -64,34 +74,38 @@ class DataService {
 }
 
 /**
- * axios interceptors runs before and after a request, letting the developer modify req,req more
- * For more details on axios interceptor see https://github.com/axios/axios#interceptors
+ * Axios interceptors - bu so'rovlar va javoblarni olishdan oldin va keyin bajariladi,
+ * bu orqali siz so'rovlarni va javoblarni o'zgartirishingiz mumkin.
  */
-
 client.interceptors.response.use(
   function (response) {
+    // Agar javob muvaffaqiyatli bo'lsa, uni to'g'ridan-to'g'ri qaytaramiz
     return response.data;
   },
   function (error) {
-    let message;
+    // Xato holatlar uchun to'g'ri xabar chiqarish
+    let message = error.response?.data || error.message;
     switch (error.response?.status) {
       case 500:
         message = { errorCode: 500, message: "Внутренняя ошибка сервера!" };
         break;
       case 401:
-        {
-          localStorage.removeItem("JADIDLAR_TOKEN");
-          // window.location.reload();
-        }
-        message = error.response?.data;
+        localStorage.removeItem("JADIDLAR_TOKEN");
+        message = { errorCode: 401, message: "Authorization required." };
         break;
       case 400:
-        message = error.response?.data;
+        message = error.response?.data || {
+          errorCode: 400,
+          message: "Bad request.",
+        };
         break;
       default:
-        message = error.response?.data;
+        message = error.response?.data || {
+          message: "An unexpected error occurred.",
+        };
     }
     return Promise.reject(message);
   }
 );
+
 export { DataService };

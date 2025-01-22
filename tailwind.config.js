@@ -3,7 +3,12 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {},
-    colors: {},
+    screens: {
+      xl: { max: "1024px" },
+      lg: { max: "870px" },
+      md: { max: "680px" },
+      sm: { max: "480px" },
+    },
   },
   plugins: [],
 };

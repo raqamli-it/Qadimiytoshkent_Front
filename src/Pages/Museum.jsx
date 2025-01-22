@@ -28,11 +28,11 @@ export default function Museum() {
     <div className="muzey_container">
       <PageTitle title={"Muzeylar"} />
       <div className="museum_content_container overflow-x-hidden">
-        <div className="museum_content h-full  place-items-center gap-x-4 gap-y-6 p-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="museum_content h-full place-items-center gap-x-4 gap-y-6 grid grid-cols-4 lg:grid-cols-3 md:grid-cols-2">
           {apiData?.map((museum) => {
             return (
               // <Link to="/museumDetail" key={museum.id}>
-              <div className="museum_page_card  space-y-2" key={museum?.id}>
+              <div className="museum_page_card" key={museum?.id}>
                 <div
                   className="overflow-hidden rounded-md"
                   onClick={() => navigate(`/museumDetail/${museum?.id}`)}
@@ -43,11 +43,11 @@ export default function Museum() {
                     alt=""
                   />
                 </div>
+
                 <div className="museum_info">
                   <h1
                     className="text-xl font-semibold text-gray-900 line-clamp-1"
                     onClick={() => navigate(`/museumDetail/${museum.id}`)}
-
                   >
                     {museum?.title_uz}
                   </h1>
@@ -55,9 +55,9 @@ export default function Museum() {
                   <a
                     target="_blank"
                     href={museum?.link}
-                    className="museum_info_des text-lg "
+                    className="text-[#6a1717d6] flex items-center font-bold my-2"
                   >
-                    Muzeyni onlayn sayohat qilish →
+                    <span>Muzeyni onlayn sayohat qilish</span> <span>→</span>
                   </a>
                 </div>
               </div>

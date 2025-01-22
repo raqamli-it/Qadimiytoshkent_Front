@@ -1,7 +1,6 @@
 import React from "react";
 
 import "./App.css";
-import Leyaut from "./Leyaut";
 import Home from "./Pages/Home";
 import { Route, Routes } from "react-router-dom";
 import About from "./Pages/About";
@@ -19,14 +18,15 @@ import ScrollToTop from "./Components/ScrollToTop";
 import NewsDetail from "./Pages/NewsDetail";
 import ArxAshiyoList from "./Pages/ArxAshiyoList";
 import YodgorlikAshyolari from "./Pages/YodgorlikAshyolari";
+import Layout from "./Layout";
 
 function App() {
   return (
     <div className="app_container">
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
       <Routes>
-        <Route path="/" Component={Leyaut}>
-          <Route path="/" Component={Home} />
+        <Route path="/" Component={Layout}>
+          <Route index Component={Home} />
           <Route path="/about" Component={About} />
           <Route path="/arxeology" Component={Arxeology} />
           <Route path="/ashyolar" Component={Ashyolar} />
@@ -37,7 +37,10 @@ function App() {
           <Route path="/museumDetail/:id" Component={MuseumDetail} />
           <Route path="/arxeologyDetail/:id" Component={ArxeologyDetail} />
           <Route path="/arxeplogyaAshyolari/:id" Component={ArxAshiyoList} />
-          <Route path="/yodgorlikAshyolari/:id" Component={YodgorlikAshyolari} />
+          <Route
+            path="/yodgorlikAshyolari/:id"
+            Component={YodgorlikAshyolari}
+          />
           <Route path="/ashyolarDetail/:id" Component={AshyolarDetail} />
           <Route path="/ashyolarDetail" Component={AshyolarDetail} />
           <Route path="/newsDetail/:id" Component={NewsDetail} />

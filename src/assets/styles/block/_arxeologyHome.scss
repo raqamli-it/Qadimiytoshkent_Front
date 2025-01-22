@@ -1,5 +1,5 @@
 .ashyo_home_container {
-  margin-top: 12rem;
+  // margin-top: 12rem;
   width: 100%;
   background: #e5e5e5;
   padding: 0 4rem 4rem 4rem;
@@ -49,7 +49,7 @@
           font-size: 25px;
           width: 100%;
           display: -webkit-box;
-          -webkit-line-clamp: 2;
+          // -webkit-line-clamp: 2;
           -webkit-box-orient: vertical;
           text-overflow: ellipsis;
           overflow: hidden;
@@ -78,8 +78,8 @@
     .ashyo_home_card:hover {
       .ashyo_home_img {
         img {
-          transform: scale(1.1);
-          transition: 0.4s;
+          transform: scale(0.9);
+          transition-timing-function: linear;
         }
       }
     }

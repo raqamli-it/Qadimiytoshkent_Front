@@ -1,130 +1,3 @@
-// .swiper_archi_container {
-//   width: 100%;
-//   background: #e5e5e5;
-//   padding: 0 4rem 4rem 4rem;
-//   .title_container {
-//     display: flex;
-//     align-items: center;
-//     gap: 20px;
-//     .title {
-//       font-weight: 600;
-//       font-size: 3rem;
-//       color: #000;
-//       padding: 2rem 0 0 0;
-//     }
-//     p {
-//       cursor: pointer;
-//       display: flex;
-//       align-items: center;
-//       gap: 10px;
-//       margin-top: 32px;
-//       font-weight: 600;
-//       color: #ff4646;
-//     }
-//   }
-//   .swiper {
-//     padding: 2rem 0;
-//     .exhibition-card {
-//       display: flex;
-//       overflow: hidden;
-//       background: #b7b7b7;
-//       color: #000;
-//       cursor: pointer;
-//       height: 400px; // Or any desired height
-
-//       .exhibition-image {
-//         flex: 1;
-//         overflow: hidden;
-
-//         img {
-//           width: 100%;
-//           height: 100%;
-//           object-fit: cover;
-//         }
-//       }
-
-//       .exhibition-info {
-//         flex: 1;
-//         padding: 20px;
-//         display: flex;
-//         flex-direction: column;
-//         justify-content: space-between;
-
-//         .exhibition-title {
-//           font-size: 30px;
-//           margin-bottom: 10px;
-//           padding: 20px 0;
-//           font-weight: 600;
-//         }
-
-//         .exhibition-description {
-//           margin-bottom: 20px;
-//         }
-//         .exhibition-date {
-//           color: #ff4646;
-//           font-weight: 600;
-//         }
-//         .exhibition-link {
-//           text-decoration: none;
-//           display: flex;
-//           gap: 1rem;
-//           justify-content: space-between;
-//           align-items: center;
-//           width: 100%;
-//           text-align: left;
-//           padding: 0.75rem 1.5rem;
-//           font-size: 1rem;
-//           color: #000;
-
-//           .more_button {
-//             width: 100px;
-//             height: 90px;
-//             padding: 5px;
-//             background: #007bff;
-//             color: #fff;
-//             border: none;
-//             border-radius: 50%;
-//             font-weight: 600;
-//             cursor: pointer;
-//           }
-
-//           .more_button:hover {
-//             background-color: #0056b3;
-//           }
-
-//           .exhibition-date {
-//             font-style: italic;
-//             // margin-bottom: 10px;
-//           }
-//         }
-//       }
-//     }
-//     .exhibition-card:hover {
-//       background: #ffe800;
-//       color: #000;
-//       transition: 0.2s ease;
-//       transform: scale(1.05); // Increasing scale on hover
-//       height: 410px; // Increasing height on hover
-
-//       .exhibition-image {
-//         img {
-//           padding: 20px 0 20px 20px;
-//         }
-//       }
-
-//       .exhibition-title {
-//         text-decoration: underline;
-//       }
-//       .exhibition-date {
-//         color: #000;
-//       }
-//       .more_button {
-//         background: #000 !important;
-//         color: #ffe800;
-//       }
-//     }
-//   }
-// }
 .swiper_archi_container {
   width: 100%;
   background: #e5e5e55d;
@@ -132,6 +5,7 @@
 
   .title_container {
     display: flex;
+    padding-top: 30px;
     align-items: center;
     gap: 20px;
 
@@ -139,7 +13,6 @@
       font-weight: 600;
       font-size: 3rem;
       color: #000;
-      padding: 2rem 0 0 0;
     }
 
     p {
@@ -147,7 +20,6 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-top: 32px;
       font-weight: 600;
       color: #ff4646;
     }
@@ -160,18 +32,16 @@
       display: flex;
       flex-direction: row; // Standart holatda gorizontal holat
       overflow: hidden;
-      background: #b7b7b7;
+      background: #b7b7b7c5;
       color: #000;
       cursor: pointer;
       height: 400px; // Yoki istalgan balandlik
       border-radius: 10px;
 
       .exhibition-image {
-        flex: 3; // Rasmni matndan ko'proq joy egallash uchun
-        overflow: hidden;
-
         img {
           width: 100%;
+          transition-duration: 0.6s;
           height: 100%; // Rasmning balandligini kartochka bilan moslashtirish
           object-fit: cover;
         }
@@ -196,7 +66,6 @@
         }
 
         .exhibition-date {
-          color: #ff4646;
           font-weight: 600;
         }
 
@@ -214,12 +83,11 @@
 
           .more_button {
             width: 100px;
-            height: 100px;
-            padding: 5px;
+            padding: 8px 12px;
             background: #007bff;
             color: #fff;
             border: none;
-            border-radius: 50%;
+            border-radius: 20px;
             font-weight: 600;
             cursor: pointer;
           }
@@ -236,25 +104,19 @@
     }
 
     .exhibition-card:hover {
-      background: #ffe800;
       color: #000;
-      transition: 0.2s ease;
-      // transform: scale(1.05); // Hover holatida o'lchamni kattalashtirish
-      // height: 410px; // Hover holatida balandlikni oshirish
-
+      transition: 0.9s;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
       .exhibition-image {
         img {
-          transition: 0.2s ease;
+          transition-duration: 0.6s;
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
           padding: 20px;
         }
       }
 
       .exhibition-title {
         text-decoration: underline;
-      }
-
-      .exhibition-date {
-        color: #000;
       }
 
       .more_button {
