@@ -22,7 +22,7 @@ export default function LibraryHome() {
     const fetchData = async () => {
       try {
         const data = await DataService.get(endpoints.arxeology);
-        setApiData(data);
+        setApiData(data.results);
       } catch (error) {
         console.error("Error fetching category data:", error);
       }
@@ -71,9 +71,9 @@ export default function LibraryHome() {
           },
         }}
       >
-        {apiData?.map((arxeologyHome) => {
+        {apiData?.map((arxeologyHome, index) => {
           return (
-            <SwiperSlide key={arxeologyHome.id}>
+            <SwiperSlide key={index}>
               <div className="ashyo_home_card">
                 <div className="ashyo_home_img">
                   <img src={arxeologyHome.image} alt="img" />

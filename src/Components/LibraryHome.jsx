@@ -73,10 +73,10 @@ export default function LibraryHome() {
         }}
         className="mySwiper"
       >
-        {apiData?.results?.map((libraryHome) => {
+        {apiData?.results?.map((libraryHome, index) => {
           return (
-            <SwiperSlide>
-              <div className="ashyo_home_card" key={libraryHome.id}>
+            <SwiperSlide key={index}>
+              <div className="ashyo_home_card">
                 <div className="ashyo_home_img">
                   <img src={libraryHome.image} alt="" />
                 </div>
