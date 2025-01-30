@@ -40,7 +40,6 @@ export default function About() {
   }, []);
   //
 
-  console.log(apiDataOlimlar, "XXXXXXXXXXXXXXXXXX");
   return (
     <div className="bg-white">
       <AboutTitle />
@@ -58,7 +57,7 @@ export default function About() {
 
         <div className="people_box_card relative z-20">
           <h2 className="text-[32px] md:text-[24px]">Olimlar</h2>
-          {/* .slice(0, 4) */}
+          
           <div className="people_container pt-5 grid grid-cols-4 gap-5 xl:grid-cols-3 gap-y-20 lg:grid-cols-2 md:grid-cols-1">
             {apiDataOlimlar?.results?.map((olimlar) => {
               return (

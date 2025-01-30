@@ -11,7 +11,6 @@ export default function Library() {
   const fetchData = async () => {
     try {
       const response = await DataService.get(endpoints.library);
-      console.log(response, "library");
       setApiData(response);
     } catch (error) {
       console.error("Error fetching category data:", error);

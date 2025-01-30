@@ -14,7 +14,6 @@ export default function ReactDatePicker() {
   const [hijriList, setHijriList] = useState({ year: "", day: "", month: "" });
 
   useEffect(() => {
-    // setInterval(() => setTime(new Date()), 1000);
     const manth = new Intl.DateTimeFormat("en-TN-u-ca-islamic", {
       day: "numeric",
       month: "numeric",
@@ -27,14 +26,6 @@ export default function ReactDatePicker() {
         }/${selectedDate.getDate()}`
       )
     );
-    // console.log("hijjjjjjjjjjj", manth);
-    // console.log(manth.split(" ")[1].slice(0, 2));
-    // console.log(
-    //   `${selectedDate.getFullYear()}/${
-    //     selectedDate.getMonth() + 1
-    //   }/${selectedDate.getDate()}`,
-    //   "datA"
-    // );
 
     switch (manth.split(" ")[1].slice(0, 2)) {
       case "1/":
@@ -114,7 +105,6 @@ export default function ReactDatePicker() {
           day: `${manth.split("/")[1]}`,
           month: `zulqa'da`,
         });
-        // console.log(hijriList);
         break;
 
       case "12":
@@ -126,7 +116,6 @@ export default function ReactDatePicker() {
         break;
     }
   }, [selectedDate]);
-  // const formattedDate = format(selectedDate, "yyyy 'yil' dd MMMM  ");
   return (
     <>
       <div className="live_clendar_item">
@@ -137,8 +126,7 @@ export default function ReactDatePicker() {
           dateFormat={"yyyy-'yil' dd-MMMM   "}
           locale="uz"
         />
-        {/* <div>{formattedDate}</div> */}
-        {/* {console.log();} */}
+
         <div>{`${hijriList.year} ${hijriList.day}-${hijriList.month}`}</div>
       </div>
     </>

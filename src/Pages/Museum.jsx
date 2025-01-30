@@ -12,7 +12,6 @@ export default function Museum() {
   const fetchData = async () => {
     try {
       const response = await DataService.get(endpoints.museum);
-      console.log(response, "museum");
       setApiData(response);
     } catch (error) {
       console.error("Error fetching category data:", error);

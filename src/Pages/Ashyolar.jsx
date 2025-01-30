@@ -13,7 +13,6 @@ export default function Ashyolar() {
     try {
       // const response = await DataService.get(endpoints.ashyo);
       const response = await DataService.get(endpoints.ashyo);
-      console.log(response, "ashyolar");
       setApiData(response);
     } catch (error) {
       console.error("Error fetching category data:", error);

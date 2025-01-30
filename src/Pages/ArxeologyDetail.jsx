@@ -20,7 +20,6 @@ export default function ArxeologyDetail() {
   const fetchData = async () => {
     const response = await DataService.get(endpoints.arxeologyById(route?.id));
     setApiData(response);
-    console.log("bu", response);
 
     if (response?.archaeologyPicture?.length > 0) {
       setActiveImage(response?.archaeologyPicture[0]?.image);
@@ -43,7 +42,6 @@ export default function ArxeologyDetail() {
   // video link
   function convertToEmbedLink(link) {
     const videoId = link?.split("v=")[1];
-    console.log(videoId);
     if (videoId != undefined) {
       const embedLink = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
       return embedLink;

@@ -11,11 +11,9 @@ export default function AshyoListItms({ id }) {
   const fetchData = async () => {
     const response = await DataService.get(id);
     setApiData(response);
-    console.log("Listdannnnnn ", response);
   };
   useEffect(() => {
     fetchData();
-    console.log(id);
   }, [id]);
 
   return (

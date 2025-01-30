@@ -11,10 +11,7 @@ export default function YodlilarListItems({ id }) {
   const fetchData = async () => {
     const response = await DataService.get(id);
     setApiData(response);
-    console.log("Listdannnnnn ", response);
 
-    // let x = document.querySelector("title");
-    // x.textContent = `Voqealar / Yigʻinlar / ${response.title}`;
   };
   useEffect(() => {
     fetchData();
@@ -22,7 +19,6 @@ export default function YodlilarListItems({ id }) {
   }, [id]);
   return (
     <>
-      {" "}
       <div className="full_card_container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {apiData?.map((ashyo) => {

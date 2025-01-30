@@ -25,7 +25,6 @@ export default function Arxeology() {
   useEffect(() => {
     fetchData();
   }, []);
-  console.log(apiData, "xxxxx");
 
   return (
     <div>
