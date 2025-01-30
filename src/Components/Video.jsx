@@ -28,7 +28,7 @@ const VideoCard = () => {
       <video
         ref={videoRef}
         className="video-card__video"
-        src={videoHome} // Video yo'lini to'g'ri kiriting
+        src={videoHome}
         type="video/mp4"
         muted
         autoPlay

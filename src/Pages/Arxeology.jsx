@@ -16,7 +16,7 @@ export default function Arxeology() {
       );
 
       const resp = await response.json();
-      setApiData(resp);
+      setApiData(resp.results);
     } catch (error) {
       console.error("Error fetching category data:", error);
     }
@@ -25,6 +25,7 @@ export default function Arxeology() {
   useEffect(() => {
     fetchData();
   }, []);
+  console.log(apiData, "xxxxx");
 
   return (
     <div>
