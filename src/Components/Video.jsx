@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FaCircleChevronRight } from "react-icons/fa6";
 
-import videoHome from "../COMMENT.mp4";
+import videoHome from "./COMMENT.mp4";
 
 gsap.registerPlugin(ScrollTrigger);
 
