@@ -36,22 +36,6 @@ const VideoCard = () => {
         playsInline
       />
       <div className="video-card__overlay">
-        <div className="video-card__content" ref={cardRef}>
-          <h1 className="video_card_title">
-            Toshkent Arxeologiya Saytiga Xush Kelibsiz
-          </h1>
-          <p style={{ letterSpacing: "1px" }}>
-            Bu yerdan o'tmish sirlari sari ilk qadam tashlaysiz. Toshkent va
-            uning atrofidagi arxeologik boyliklar, qadimiy yodgorliklar, va
-            tarixdan so'zlovchi topilmalar sizni kutmoqda.
-          </p>
-          <button className="video-card__button">
-            <span>Batafsil</span>
-            <span>
-              <FaCircleChevronRight />
-            </span>
-          </button>
-        </div>
         <button
           onClick={handlePlayPause}
           className="video-card__play-pause-button"

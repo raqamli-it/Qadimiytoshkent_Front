@@ -120,15 +120,32 @@ export default function ReactDatePicker() {
     <>
       <div className="live_clendar_item">
         <FaCalendarAlt style={{ color: "black" }} />
-        <DatePicker
-          selected={selectedDate}
-          onChange={(e) => setSelectedDate(e)}
-          dateFormat={"yyyy-'yil' dd-MMMM   "}
-          locale="uz"
-        />
-
-        <div>{`${hijriList.year} ${hijriList.day}-${hijriList.month}`}</div>
+        <div>{` ${sanaFormatUz(new Date())} |`} </div>
+        <div>{`| ${hijriList.year} ${hijriList.day}-${hijriList.month}`}</div>
       </div>
     </>
   );
+}
+
+function sanaFormatUz(date) {
+  const oylar = [
+    "yanvar",
+    "fevral",
+    "mart",
+    "aprel",
+    "may",
+    "iyun",
+    "iyul",
+    "avgust",
+    "sentabr",
+    "oktabr",
+    "noyabr",
+    "dekabr",
+  ];
+
+  const oyNomi = oylar[date.getMonth()];
+  const kun = date.getDate();
+  const yil = date.getFullYear();
+
+  return ` ${kun} ${oyNomi} ${yil}-yil`;
 }
